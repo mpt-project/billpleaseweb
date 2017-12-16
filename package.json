@@ -1,0 +1,52 @@
+{
+  "name": "billpleaseweb",
+  "version": "1.0.0",
+  "description": "Front-end service for Bill Please application.",
+  "scripts": {
+    "dev": "npm run build:dev && run-p bs watch:dev",
+    "bs": "browser-sync start --config bs-config.js",
+    "prebuild:dev": "npm run clean && mkdir public",
+    "build:dev": "run-p build:dev:*",
+    "build:dev:js": "browserify ./src/js/app.js -o ./public/app.js",
+    "build:dev:css": "node-sass ./src/styles/main.scss ./public/main.css",
+    "watch:dev": "run-p watch:dev:*",
+    "watch:dev:js": "nodemon -e js -w ./src/js -x \"npm run build:dev:js\"",
+    "watch:dev:css": "nodemon -e scss -w ./src/styles -x \"npm run build:dev:css\"",
+    "clean": "rimraf ./public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mpt-project/billpleaseweb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mpt-project/billpleaseweb/issues"
+  },
+  "homepage": "https://github.com/mpt-project/billpleaseweb#readme",
+  "dependencies": {
+    "angular": "^1.6.7",
+    "angular-route": "^1.6.7",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babelify": "^8.0.0",
+    "browser-sync": "^2.18.13",
+    "browserify": "^14.5.0",
+    "node-sass": "^4.7.2",
+    "nodemon": "^1.13.3",
+    "npm-run-all": "^4.1.2",
+    "rimraf": "^2.6.2"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "env"
+          ]
+        }
+      ]
+    ]
+  }
+}
