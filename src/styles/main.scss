@@ -1,7 +1,15 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700,900|Luckiest+Guy|Roboto+Condensed:400,700&subset=latin-ext");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/2.0.46/css/materialdesignicons.min.css");
+
+$mainColor: #9c1f4d;
+$textMain: #eee;
+
+@import './layouts/panel.scss';
+
 * {
     box-sizing: border-box;
 }
 
-body {
-    background: orangered;
+.ng-cloak {
+    display: none !important;
 }

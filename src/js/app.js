@@ -1,20 +1,15 @@
 import angular from 'angular';
 import 'angular-route';
+import 'angular-base64-upload';
 
-const app = angular.module('billplease', ['ngRoute']);
+const app = angular.module('billplease', ['ngRoute', 'naif.base64']);
 
-app.controller('mainCtrl', ['$scope', '$route', '$routeParams', '$location', ($scope, $route, $routeParams, $location) => {
-    $scope.$route = $route;
-    $scope.$location = $location;
-    $scope.$routeParams = $routeParams;
-}]);
+import mainCtrl from './controllers/main.controller';
+import panelCtrl from './controllers/panel.controller';
 
-app.config(($routeProvider, $locationProvider) => {
-    $routeProvider
-    .when('/:param', {
-        templateUrl: 'index.html',
-        controller: 'mainCtrl'
-    });
+app.controller('mainCtrl', mainCtrl);
+app.controller('panelCtrl', panelCtrl);
 
-    $locationProvider.html5Mode(true);
-});
+import routeCfg from './configs/route.config';
+
+app.config(routeCfg);
