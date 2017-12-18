@@ -3,6 +3,8 @@ export default ['$scope', $scope => {
 
     $scope.receipts = [];
     $scope.modalShow = false;
+    $scope.detailShow = false;
+    $scope.currentDetail = {};
     $scope.invalidAlert = false;
 
     $scope.addReceipt = () => {
@@ -28,6 +30,18 @@ export default ['$scope', $scope => {
             initReceipt();
             /** TODO: save to db */
         }
+    };
+
+    $scope.showDetail = (bill, index) => {
+        $scope.currentDetail = bill;
+        $scope.currentDetail.index = index;
+        $scope.detailShow = true;
+    };
+
+    $scope.deleteReceipt = () => {
+        $scope.receipts.splice($scope.currentDetail.index, 1);
+        $scope.currentDetail = {};
+        $scope.detailShow = false;
     };
 
     function initReceipt() {

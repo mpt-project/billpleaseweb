@@ -1,114 +1,204 @@
 <div class="fab-icon-add" ng-click="modalShow = !modalShow">
-    <i class="mdi mdi-plus mdi-36px"></i>
+    <i class="mdi mdi-plus mdi-36px">
+    </i>
 </div>
-
-<div id="add-receipt-box" class="modal-box ng-cloak" ng-show="modalShow">
+<!-- Add Receipt Box -->
+<div class="modal-box ng-cloak" id="add-receipt-box" ng-show="modalShow">
     <div class="modal-wrapper">
         <div class="close-icon-modal" ng-click="modalShow = false">
-            <i class="mdi mdi-close mdi-24px"></i>
+            <i class="mdi mdi-close mdi-24px">
+            </i>
         </div>
         <div class="modal-content scrollable" id="modal-main">
             <div class="modal-header">
-                <h2>Dodaj paragon</h2>
+                <h2>
+                    Dodaj paragon
+                </h2>
             </div>
-            <div class="alert-invalid" ng-show="invalidAlert" ng-cloak>
+            <div class="alert-invalid" ng-cloak="" ng-show="invalidAlert">
                 Uzupełnij wymagane pola
             </div>
             <div class="modal-image" id="modalImage">
                 <div class="file-input-group" ng-show="!receiptFile">
-                    <input type="file" id="receiptFile" ng-model="receiptFile" class="inputFile" base-sixty-four-input />
+                    <input base-sixty-four-input="" class="inputFile" id="receiptFile" ng-model="receiptFile" type="file"/>
                     <label for="receiptFile">
-                        <i class="mdi mdi-upload mdi-36px"></i>
+                        <i class="mdi mdi-upload mdi-36px">
+                        </i>
                     </label>
                 </div>
-                <img data-ng-src="{{'data:image/png;base64,' + receiptFile.base64}}" ng-show="receiptFile" ng-cloak />
-                <span class="empty-image-icon" ng-show="receiptFile" ng-cloak ng-click="receiptFile = ''">
-                    <i class="mdi mdi-delete mdi-36px"></i>
+                <img data-ng-src="{{'data:image/png;base64,' + receiptFile.base64}}" ng-cloak="" ng-show="receiptFile"/>
+                <span class="empty-image-icon" ng-click="receiptFile = ''" ng-cloak="" ng-show="receiptFile">
+                    <i class="mdi mdi-delete mdi-36px">
+                    </i>
                 </span>
             </div>
             <div class="modal-form" id="modalForm">
                 <div class="input-group">
-                    <label for="receiptName">Nazwa paragonu</label>
-                    <input type="text" class="modal-input" name="receiptName" ng-model="receiptName">
-                    <span class="bar"></span>
+                    <label for="receiptName">
+                        Nazwa paragonu
+                    </label>
+                    <input class="modal-input" name="receiptName" ng-model="receiptName" type="text">
+                        <span class="bar">
+                        </span>
+                    </input>
                 </div>
                 <div class="input-group">
-                    <label for="receiptName">Nazwa sklepu</label>
-                    <input type="text" class="modal-input" name="shopName" ng-model="shopName">
-                    <span class="bar"></span>
+                    <label for="receiptName">
+                        Nazwa sklepu
+                    </label>
+                    <input class="modal-input" name="shopName" ng-model="shopName" type="text">
+                        <span class="bar">
+                        </span>
+                    </input>
                 </div>
                 <div class="input-group">
-                    <label for="receiptName">Data zakupu</label>
-                    <input type="date" class="modal-input" name="purchaseTime" ng-model="purchaseTime">
-                    <span class="bar"></span>
+                    <label for="receiptName">
+                        Data zakupu
+                    </label>
+                    <input class="modal-input" name="purchaseTime" ng-model="purchaseTime" type="date">
+                        <span class="bar">
+                        </span>
+                    </input>
                 </div>
                 <div class="input-group-warranty">
-                    <label for="receiptName">Okres gwarancji</label>
+                    <label for="receiptName">
+                        Okres gwarancji
+                    </label>
                     <div class="warranty-range-group">
                         <div class="warranty-range-group-item">
-                            <input type="number" class="modal-input" name="warrantyRange" ng-model="warrantyRange">
-                            <span class="bar"></span>
+                            <input class="modal-input" name="warrantyRange" ng-model="warrantyRange" type="number">
+                                <span class="bar">
+                                </span>
+                            </input>
                         </div>
                         <div class="warranty-range-group-item">
                             <select name="warrantyType" ng-model="warrantyType">
-                                <option value="year" selected>Rok</option>
-                                <option value="month">Miesiąc</option>
-                                <option value="week">Tydzień</option>
+                                <option selected="" value="year">
+                                    Rok
+                                </option>
+                                <option value="month">
+                                    Miesiąc
+                                </option>
+                                <option value="week">
+                                    Tydzień
+                                </option>
                             </select>
-                            <span class="bar"></span>
+                            <span class="bar">
+                            </span>
                         </div>
                     </div>
                 </div>
                 <div class="input-group">
-                    <label for="receiptName">Opis (opcjonalnie)</label>
-                    <input type="text" class="modal-input" name="receiptDesc" ng-model="receiptDesc">
-                    <span class="bar"></span>
+                    <label for="receiptName">
+                        Opis (opcjonalnie)
+                    </label>
+                    <input class="modal-input" name="receiptDesc" ng-model="receiptDesc" type="text">
+                        <span class="bar">
+                        </span>
+                    </input>
                 </div>
                 <div class="button-confirm">
-                    <button class="add-receipt-form" ng-click="addReceipt()">Dodaj</button>
+                    <button class="add-receipt-form" ng-click="addReceipt()">
+                        Dodaj
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+<!-- Detail View -->
+<div class="modal-box ng-cloak" id="receipt-detail" ng-show="detailShow">
+    <div class="modal-wrapper detail-wrapper">
+        <div class="action-buttons">
+            <div class="edit-button"><i class="mdi mdi-pencil mdi-24px"></i></div>
+            <div class="remove-button" ng-click="deleteReceipt()"><i class="mdi mdi-delete mdi-24px"></i></div>
+        </div>
+        <div class="modal-content scrollable">
+            <div class="big-top">
+                <div class="big-img-crop">
+                    <div class="gradient">
+                    </div>
+                    <img class="big-top-image" ng-src="{{'data:image/png;base64,' + currentDetail.image}}"/>
+                </div>
+                <div class="big-top-description">
+                    <h1 class="big-top-title">
+                        {{ currentDetail.name }}
+                    </h1>
+                    <p class="big-top-desc">
+                        {{ currentDetail.description }}
+                    </p>
+                </div>
+            </div>
+            <div class="detail-warning-warranty">
+                Twoja gwarancja wygaśnie za 
+                <span class="warranty">{{currentDetail.warrantyRange + ' ' + currentDetail.warrantyType}}</span>
+            </div>
+            <div class="bill-info">
+                <div class="info-row">
+                    <div class="info-icon"><i class="mdi mdi-cart mdi-36px"></i></div>
+                    <div class="info-value">{{currentDetail.shop}}</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-icon"><i class="mdi mdi-calendar-range mdi-36px"></i></div>
+                    <div class="info-value">{{currentDetail.purchaseTime | date: 'dd/MM/yyyy'}}</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-icon"><i class="mdi mdi-timelapse mdi-36px"></i></div>
+                    <div class="info-value">{{currentDetail.warrantyRange}} {{currentDetail.warrantyType}}</div>
+                </div>
+            </div>
+            <div class="button-back-detail">
+                <button ng-click="detailShow = false"><i class="mdi mdi-arrow-left mdi-16px"></i>Powrót</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Main Body -->
 <nav>
     <div class="nav-wrapper">
         <div class="site-name">
-            <span class="site-name-title">Twoje paragony</span>
+            <span class="site-name-title">
+                Twoje paragony
+            </span>
         </div>
         <div class="menu-icon">
-            <i class="mdi mdi-menu mdi-24px"></i>
+            <i class="mdi mdi-menu mdi-24px">
+            </i>
         </div>
     </div>
 </nav>
-
 <div class="search-bar">
     <div class="search-group">
         <div class="search-icon">
-            <i class="mdi mdi-magnify mdi-24px"></i>
+            <i class="mdi mdi-magnify mdi-24px">
+            </i>
         </div>
         <div class="search-input">
-            <input type="text" class="search" placeholder="Szukaj paragonu..." />
-            <span class="bar"></span>
+            <input class="search" placeholder="Szukaj paragonu..." type="text"/>
+            <span class="bar">
+            </span>
         </div>
     </div>
-
     <div class="icons-right">
-        <i class="mdi mdi-microphone mdi-24px"></i>
-        <i class="mdi mdi-sort-alphabetical mdi-24px"></i>
+        <i class="mdi mdi-microphone mdi-24px">
+        </i>
+        <i class="mdi mdi-sort-alphabetical mdi-24px">
+        </i>
     </div>
 </div>
-
 <div class="container">
     <div class="receipt-list">
-        <span class="no-receipts" ng-show="!receipts.length">Nie dodałeś jeszcze żadnych paragonów</span>
-        <ul ng-show="receipts.length" ng-cloak>
-            <li class="receipt-item" ng-repeat="r in receipts">
+        <span class="no-receipts" ng-show="!receipts.length">
+            Nie dodałeś jeszcze żadnych paragonów
+        </span>
+        <ul ng-cloak="" ng-show="receipts.length">
+            <li class="receipt-item" ng-click="showDetail(r, $index)" ng-repeat="r in receipts">
                 <div class="image-title-wrapper">
-                    <img ng-src="{{'data:image/png;base64,' + r.image}}" alt="r.name" />
+                    <img alt="r.name" ng-src="{{'data:image/png;base64,' + r.image}}"/>
                     <div class="title">
-                        <h1>{{r.name}}</h1>
+                        <h1>
+                            {{r.name}}
+                        </h1>
                         <div class="item-desc">
                             {{r.description || "brak opisu"}}
                         </div>
