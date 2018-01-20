@@ -25,9 +25,9 @@
   },
   "homepage": "https://github.com/mpt-project/billpleaseweb#readme",
   "dependencies": {
+    "@uirouter/angularjs": "^1.0.13",
     "angular": "^1.6.7",
     "angular-base64-upload": "^0.1.23",
-    "angular-route": "^1.6.7",
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babelify": "^8.0.0",

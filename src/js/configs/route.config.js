@@ -1,13 +1,21 @@
-export default ($routeProvider, $locationProvider) => {
-    $routeProvider
-    .when('/', {
+export default ($stateProvider, $urlRouterProvider) => {
+
+    $urlRouterProvider.otherwise('/');
+
+    $stateProvider
+    .state('home', {
+        url: '/',
         templateUrl: './templates/homepage.html',
         controller: 'mainCtrl'
     })
-    .when('/panel', {
+    .state('register', {
+        url: '/register',
+        templateUrl: './templates/register.html',
+        controller: 'mainCtrl'
+    })
+    .state('panel', {
+        url: '/panel',
         templateUrl: './templates/panel.html',
         controller: 'panelCtrl'
-    })
-
-    $locationProvider.html5Mode(true);
+    });
 };

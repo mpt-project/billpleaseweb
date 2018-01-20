@@ -1,8 +1,12 @@
 import angular from 'angular';
-import 'angular-route';
+import '@uirouter/angularjs';
 import 'angular-base64-upload';
 
-const app = angular.module('billplease', ['ngRoute', 'naif.base64']);
+const app = angular.module('billplease', ['ui.router', 'naif.base64']);
+
+import userService from './services/user.service';
+
+app.factory('userService', userService);
 
 import mainCtrl from './controllers/main.controller';
 import panelCtrl from './controllers/panel.controller';
