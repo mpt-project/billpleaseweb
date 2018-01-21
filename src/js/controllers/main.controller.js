@@ -4,8 +4,14 @@ export default ['$scope', '$http', '$state', 'userService', ($scope, $http, $sta
 	$scope.credentials = {};
 	$scope.newUser = {};
 
-	$scope.login = () => {
-		userService.login($scope.credentials);
+	$scope.login = async function () {
+		const userId = await userService.login($scope.credentials);
+
+		if (userId) {
+			$state.go('panel');
+		} else {
+			alert('incorrect login data');
+		}
 	}
 
 	$scope.register = () => {
@@ -14,12 +20,11 @@ export default ['$scope', '$http', '$state', 'userService', ($scope, $http, $sta
 		if (data.email && data.name && data.password && data.password_confirm && data.password === data.password_confirm) {
 			$http.post(`${API_HOST}/register`, { email: data.email, name: data.name, password: data.password })
 				.then(({ data }) => {
-					console.log(data);
 					$scope.newUser = {};
-					$scope.go('login')
+					$state.go('home');
 				})
 				.catch(e => {
-					console.log('error', e);
+					console.error('error', e);
 				});
 		}
 	}

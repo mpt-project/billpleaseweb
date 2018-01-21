@@ -1,11 +1,18 @@
-export default ['$scope', $scope => {
+export default ['$scope', '$http', '$state', 'userService', 'auth', ($scope, $http, $state, userService, auth) => {
     initReceipt();
+    const API_HOST = 'http://77.55.230.115:3000';
+
+    $scope.userId = auth;
 
     $scope.receipts = [];
     $scope.modalShow = false;
     $scope.detailShow = false;
     $scope.currentDetail = {};
     $scope.invalidAlert = false;
+
+    console.log('panel user id', $scope.userId);
+
+    $http.post('http://77.55.')
 
     $scope.addReceipt = () => {
         $scope.invalidAlert = false;
@@ -43,6 +50,11 @@ export default ['$scope', $scope => {
         $scope.currentDetail = {};
         $scope.detailShow = false;
     };
+
+    $scope.logout = () => {
+        userService.logout();
+        $state.go('home', {}, { reload: true });
+    }
 
     function initReceipt() {
         $scope.receiptFile = null;

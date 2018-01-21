@@ -1,34 +1,18 @@
-<form name="loginForm" ng-submit="login()">
-    <label for="email">
-        <input name="email" type="text" ng-model="credentials.email" />
-    </label>
-    <label for="password">
-        <input name="password" type="password" ng-model="credentials.password" />
-    </label>
-    <input type="submit" value="Zaloguj">
-</form>
-<h2><a ui-sref="register">Dołącz do nas</a></h2>
-<pre>
-{{ user }}
-</pre>
-<!-- <div class="login">
+<div class="login">
   <div class="login-header">
     <h1>Bill Please!</h1>
   </div>
   <div class="login-form">
-    <h2>Dane do logowania:</h2>
-    <h3>Nazwa użytkownika:</h3>
-    <input type="text" placeholder="Podaj login"/><br>
-    <h3>Hasło:</h3>
-    <input type="password" placeholder="Podaj swoje hasło"/>
-    <br>
-    <input type="button" value="Zaloguj" class="login-button"/>
-    <br>
-    <a href="register.html" class="sign-up">Dołącz do nas!</a>
-    <br>
-    <h6 class="no-access">Nie możesz się zalogować?</h6>
+    <form name="loginForm" ng-submit="login()" method="post">
+      <h3>Email:</h3>
+      <input type="text" name="email" placeholder="E-mail" ng-model="credentials.email"/><br>
+      <h3>Hasło:</h3>
+      <input type="password" name="password" placeholder="Hasło" ng-model="credentials.password" />
+      <br>
+      <input type="submit" value="Zaloguj" class="login-button"/>
+    </form>
+    <div class="sign-up">
+      <a ui-sref="register">Dołącz do nas!</a>    
+    </div>
   </div>
 </div>
-<div class="error-page">
-  <div class="try-again">Error: Try again?</div>
-</div> -->

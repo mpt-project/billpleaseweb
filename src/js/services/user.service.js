@@ -6,15 +6,16 @@ export default ['$http', ($http) => {
 	userService.user = undefined;
 
 	userService.login = credentials => {
-		userService.message = '';
-		$http.post(`${API_HOST}/login`, credentials)
-			.then(({ data }) => {
-				console.log(data);
-				userService.user = data;
-			})
-			.catch(e => {
-				console.log(e);
-			})
+		return new Promise(resolve => {
+			$http.post(`${API_HOST}/login`, credentials)
+				.then(({ data }) => {
+					userService.user = data.id;
+					return resolve(userService.user);
+				})
+				.catch(e => {
+					return resolve(null);
+				})
+		})
 	};
 
 	userService.logout = () => {

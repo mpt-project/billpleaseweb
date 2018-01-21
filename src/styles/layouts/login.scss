@@ -1,34 +1,31 @@
-body {
-  background:url('../img/coffee-2631739.jpg');
-  margin:0px;
-  font-family: 'Ubuntu', sans-serif;
-	background-size: 100% 110%;
-}
 h1, h2, h3, h4, h5, h6, a {
   margin:0; padding:0;
 }
 .login {
+  position: relative;
   margin:0 auto;
-  max-width:500px;
+  width: 100vw;
+  height: 100vh;
+  background:url('https://image.ibb.co/c4hLeG/coffee_2631739.png');
+  background-size: cover;
+  font-family: 'Robot Condensed', sans-serif;
+  overflow: scroll;
 }
 .login-header {
   color:#fff;
   text-align:center;
   font-size:300%;
+  font-family: 'Luckiest Guy', cursive;
 }
-/* .login-header h1 {
-   text-shadow: 0px 5px 15px #000; */
-}
+
 .login-form {
-  border:.5px solid #fff;
-  background:#4facff;
-  border-radius:10px;
-  box-shadow:0px 0px 10px #000;
+  max-width:500px;
 }
 .login-form h3 {
   text-align:left;
   margin-left:40px;
   color:#fff;
+  text-shadow: 1px 0 5px black;
 }
 .login-form h2 {
   text-align:center;
@@ -52,7 +49,7 @@ h1, h2, h3, h4, h5, h6, a {
   max-width:400px;
 	width: 80%;
   line-height:3em;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Lato', sans-serif;
   margin:1em 2em;
   border-radius:5px;
   border:2px solid #f2f2f2;
@@ -60,7 +57,7 @@ h1, h2, h3, h4, h5, h6, a {
   padding-left:10px;
   opacity: 0.7;
 }
-.login-form input[type="button"] {
+.login-form input[type="submit"] {
   height:30px;
   width:120px;
   background:#fff;
@@ -71,37 +68,20 @@ h1, h2, h3, h4, h5, h6, a {
   font-family: 'Ubuntu', sans-serif;
   cursor:pointer;
 }
-.sign-up{
-  color:#f2f2f2;
-  margin-left:-47%;
-  cursor:pointer;
-  text-decoration:underline;
-}
-/*
-.no-access {
-  color:#E86850;
-  margin:20px 0px 20px -57%;
-  text-decoration:underline;
-  cursor:pointer;
-}
-*/
-.try-again {
-  color:#f2f2f2;
-  text-decoration:underline;
-  cursor:pointer;
+
+.login-form form {
+  margin-bottom: 20px;
 }
 
-/*Media Querie*/
-@media only screen and (min-width : 150px) and (max-width : 530px){
-  .login-form h3 {
-    text-align:center;
-    margin:0;
-  }
+.sign-up {
+  background: #9c1f4d;
+  padding: 15px 20px;
+  border-radius: 5px;
+  margin-top: 10px;
+  display: inline-block;
 
-  .sign-up, .no-access {
-    margin:10px 0;
-  }
-  .login-button {
-    margin-bottom:10px;
+  a {
+    color: #eee;
+    text-decoration: none;
   }
 }
