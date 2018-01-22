@@ -1,6 +1,6 @@
 export default ['$scope', '$http', '$state', 'userService', 'auth', ($scope, $http, $state, userService, auth) => {
     initReceipt();
-    const API_HOST = 'http://77.55.230.115:3000';
+    const API_HOST = 'http://77.55.230.115:3030';
 
     $scope.userId = auth;
 
@@ -10,9 +10,13 @@ export default ['$scope', '$http', '$state', 'userService', 'auth', ($scope, $ht
     $scope.currentDetail = {};
     $scope.invalidAlert = false;
 
-    console.log('panel user id', $scope.userId);
-
-    $http.post('http://77.55.')
+    $http.post(`${API_HOST}/receipts`, { id: $scope.userId })
+        .then(({ data }) => {
+            console.log(data);
+        })
+        .catch(e => {
+            console.error('Panel Controller ERROR:', e);
+        });
 
     $scope.addReceipt = () => {
         $scope.invalidAlert = false;
@@ -31,6 +35,14 @@ export default ['$scope', '$http', '$state', 'userService', 'auth', ($scope, $ht
 
             if ($scope.receiptDesc)
                 newRec.description = $scope.receiptDesc;
+
+            $http.post(`${API_HOST}/image`, { body: newRec.image }, { headers: { 'Content-Type': 'application/json' } })
+                .then(({ data }) => {
+                    console.log(data);
+                })
+                .catch(e => {
+                    console.error(e);
+                });
 
             $scope.receipts.push(newRec);
             $scope.modalShow = false;
